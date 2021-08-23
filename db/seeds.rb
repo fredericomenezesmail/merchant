@@ -20,3 +20,9 @@ User.create!(name:  "Example User",
                email: email,
                password:              password)
 end
+
+# Generate microposts for a subset of users.
+users = User.order(:created_at).take(6)
+10.times do
+  users.each { |user| user.posts.create!() }
+end
