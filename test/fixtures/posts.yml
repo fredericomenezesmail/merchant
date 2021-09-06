@@ -9,9 +9,9 @@ most_recent:
   user: jose
   
 <% 30.times do |n| %>
-micropost_<%= n %>:
+post_<%= n %>:
   created_at: <%= 42.days.ago %>
-  user: michael
+  user: jose
 <% end %>
 
 four:

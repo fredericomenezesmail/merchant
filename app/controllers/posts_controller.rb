@@ -5,14 +5,17 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.file.attach(params[:post][:import_file])
-    @lines = File.read(params[:post][:import_file])
+    lines = File.read(params[:post][:import_file])
+
+    sales = Sale.where("last_upload = ?", true).update_all(last_upload: false)
 
     row = 1
-    @lines.each_line do |line|
+    lines.each_line do |line|
       if row == 1
         row = row + 1
       else
         columns = line.split("\t")
+        sale = Sale.create(purchaser_name: columns[0], item_description: columns[1], item_price: columns[2], purchase_count: columns[3], merchant_address: columns[4], merchant_name: columns[5], last_upload: true )
       end
     end
 

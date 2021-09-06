@@ -90,13 +90,22 @@ aside {
       margin-bottom: 3px;
       line-height: 1;
     }
-    h1 {
+
+    h1, h2 {
       font-size: 1.4em;
       text-align: left;
       letter-spacing: -1px;
-      margin-bottom: 3px;
       margin-top: 0px;
     }
+
+    h1 {
+      margin-bottom: 3px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
   }
 }
 

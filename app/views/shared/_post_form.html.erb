@@ -1,6 +1,6 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <span class="file">
-    <%= f.file_field :import_file %>
+    <%= f.file_field :import_file, required: true %>
   </span>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
